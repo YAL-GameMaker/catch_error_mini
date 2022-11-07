@@ -1,0 +1,9 @@
+{
+  "extensionId": {
+    "name": "catch_error_mini",
+    "path": "extensions/catch_error_mini/catch_error_mini.yy"
+  },
+  "resourceVersion": "1.0",
+  "resourceType": "GMExtensionConfigSet",
+  "configurables": null
+}

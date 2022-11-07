@@ -1,0 +1,41 @@
+```set template default.html```
+```set title catch_error_mini cheat sheet```
+```gmlapi fnames2```
+```set autoapi ext```
+```set intro
+This is a "cheat sheet" for "catch_error_mini" extension by YellowAfterlife.\
+The extension can be found on [itch.io](https://yellowafterlife.itch.io/gamemaker-catch-error).\
+Source code can be found on [GitHub](https://github.com/YAL-GameMaker/catch_error_mini).
+```
+
+#[error_occurred]() {
+	Boolean - indicates whether the last application launch ended in an error.
+}
+#[error_last]() {
+	If the last application launch ended in an error, holds the error message.\
+	Leading padding (line breaks and `_`/`#` separators) is trimmed,
+	so the string will usually look like this:
+	```text
+	ERROR in
+	action number 1
+	of Draw Event
+	for object obj_test:
+	
+	Push :: Execution Error - Variable Index [1] out of range [0] - -7.arr(100006,1)
+	 at gml_Script_scr_trouble (line 3) -        show_debug_message(arr[1]);
+	############################################################################################
+	gml_Script_scr_trouble (line 3)
+	gml_Object_obj_test_Draw_0 (line -1) -        scr_trouble();
+	```
+	If the last launch did not end in an error,
+	the variable is set to an empty string `""` instead.
+	
+	So you could, for example,
+	```gml
+	// somewhere on game start
+	if (error_occurred) {
+		show_message("Error from last launch: " + error_last);
+		// or send error_last wherever you need to
+	}
+	```
+}
